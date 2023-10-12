@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at Midnight
+    - cron: '0 0 * * *' # Every day at midnight
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
           platforms: linux/amd64
           tags: latest v1 ${{ github.sha }}
           containerfiles: |
-            ./Dockerfile
+            ./Containerfile
 
       - name: Push To GHCR
         uses: redhat-actions/push-to-registry@v2
