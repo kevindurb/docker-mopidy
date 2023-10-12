@@ -15,6 +15,7 @@ RUN apt update \
   libspotify12 \
   libspotify-dev
 
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./requirements.txt ./
 RUN pip install -r ./requirements.txt
